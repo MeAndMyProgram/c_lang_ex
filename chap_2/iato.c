@@ -6,6 +6,7 @@ void itob(int n, char s[], int b);
 void reverse(char s[]);
 int abs(int x);
 
+
 int main()
 {
    int n, b;
