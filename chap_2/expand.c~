@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+void expand (char s1[], char s2[]);
+
+main()
+{
+  char s[32] = {A, -, Z};
+  char t[45];
+  expand(s, t);
+}
+
+void expand(char s[], char t[]){
+ 
+  int i, j, m;
+  i = 0;
+  j = 0;
+ 
+  while(s[i] != '\0'){
+    switch (s[i]){
+    	case '-':
+	  	m =s[i];
+       		i++;
+		j++;
+
+		while(m <= s[++i] ){
+			t[j] = m;
+			m++;
+			j++;
+
+		  }
+		++j;
+		t[j] = '\0';
+		break;
+	default:
+	  	t[j] = s[i];
+
+		break;
+		}
+		}
+    for(i = 0; i != '\0'; i++ ){
+	printf("%d", t[i]);
+	printf("\n");
+    }
+
+    }
+
+
+      
