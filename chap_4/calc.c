@@ -12,7 +12,10 @@ int getop();
 void push(double);
 double pop(void);
 int celi(double);
-
+void show(void);
+void repleace(void);
+void clear(void);
+void copysp(void);
 
 int sp = 0;
 double val[MAXOP];
@@ -53,13 +56,25 @@ main()
         if(op3 != 0)
           push(celi(pop()) % op3);
         break;
-
+      case 's':
+        show();
+        break;
+      case 'd':
+        clear();
+        break;
+      case 'c':
+        copysp();
+        break;
+      case 'r':
+        repleace();
+        break;
       case '\n':
         printf("\t%.8g\n", pop());
         break;
       default:
         printf("error: unknown command %s\n", s);
         break;
+
 
     }
   }
@@ -90,5 +105,35 @@ int celi(double m)
   for(i = 0; i <= m; i++)
       ;
   return i;
+
+}
+
+void show(void)
+{
+    printf("\t%.8g\n", val[sp]);
+}
+
+void copysp(void)
+{
+      double i = val[sp] = val[++sp];
+      printf("\t%.8g\n", val[sp]);
+      printf("\t%.8g\n", val[--sp]);
+      sp++;
+}
+void repleace(void)
+{
+      double i = val[sp];
+      double n = val[--sp];
+      val[sp] = i;
+      val[++sp] = n;
+      printf("\t%.8g\n", val[sp]);
+      printf("\t%.8g\n", val[--sp]);
+      sp++;
+
+}
+void clear(void)
+{
+      while(sp >  0)
+            val[--sp] = 0;
 
 }
