@@ -17,6 +17,7 @@ void repleace(void);
 void clear(void);
 void copysp(void);
 
+
 int sp = 0;
 double val[MAXOP];
 
@@ -56,16 +57,19 @@ main()
         if(op3 != 0)
           push(celi(pop()) % op3);
         break;
-      case 's':
+      case '^':
+        push(pow(pop(), pop()));
+        break;
+      case '@':
         show();
         break;
-      case 'd':
+      case '#':
         clear();
         break;
-      case 'c':
+      case '$':
         copysp();
         break;
-      case 'r':
+      case '!':
         repleace();
         break;
       case '\n':
@@ -112,6 +116,7 @@ void show(void)
 {
     printf("\t%.8g\n", val[sp]);
 }
+
 
 void copysp(void)
 {
