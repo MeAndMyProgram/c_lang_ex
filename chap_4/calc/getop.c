@@ -1,19 +1,10 @@
 #include <ctype.h>
 #include <stdio.h>
-#define NUMBER '0'
-#define BUFSIZE 100
-
-char buf[BUFSIZE];
-int bufp = 0;
-
-int getch(void);
-void ungetch(int);
+#include "calc.h"
 
 int getop(char s[])
 {
   int i,c;
-
-
   while ((s[0] = c = getch()) == ' ' || c == '\t')
         ;
 
@@ -45,20 +36,4 @@ int getop(char s[])
     ungetch(c);
 
     return NUMBER;
-}
-
-
-
-
-int getch (void)
-{
-  return (bufp > 0) ? buf[--bufp] : getchar();
-}
-
-void ungetch(int c)
-{
-  if (bufp >= BUFSIZE)
-    printf("ungetch: to many characters\n");
-  else
-    buf[bufp++] = c;
 }
