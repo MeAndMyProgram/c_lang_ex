@@ -1,49 +1,39 @@
 #include <stdio.h>
 #include <string.h>
-#define LEN 100
 
-void itob(int n, char s[], int b);
-void reverse(char s[]);
-int abs(int x);
+void itoaa(int n, char s[]);
 
 /* функция переводящая число в строку */
 int main()
 {
-   int n, b;
-   char s[LEN];
 
-   printf("Enter the number n: ");
-   scanf("%d", &n);
-   printf("base b: ");
-   scanf("%d", &b);
-   itob(n, s, b);
-   printf("%s", s);
-   printf("\n");
-   return 0;
+  int n = -123;
+  char s[20];
+
+  itoaa(n, s);
+  printf("%s\n", s);
+
 }
 
 /*itob*/
-void itob(int n, char s[], int b)
+void itoaa(int n, char s[])
 {
-   int i, sign, c;
+   static int i = 0;
+   if(n < 0){
+    n = -n;
+    s[i++] = '-';
+  }
+   if(n / 10)
+    itoaa(n / 10, s);
 
-   sign = n; //сохраняем знак
-   if(sign < 0)
-       n = -n;
-   i = 0;
-   do //генерируем цифры в обратном порядке
-   {
-       c = (n % b);
-       s[i++] = (c>9) ? c+'A'-10: c + '0';//если 16-ричное отображение
-       n /= b;                            //подбираем буквы
-   } while (n >= 1);
-   if (sign < 0)
-       s[i++] = '-';
-   s[i] = '\0';
-   reverse(s);
+  s[i++] = n % 10 +'0';
+
+  s[i] = '\0';
+
 }
 
-/*reverse*/
+
+/*reverse
 void reverse(char s[])
 {
    int i, j;
@@ -56,3 +46,4 @@ void reverse(char s[])
        s[j] = c;
    }
 }
+*/
