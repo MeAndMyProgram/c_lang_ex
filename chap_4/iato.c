@@ -3,6 +3,7 @@
 
 void itoaa(int n, char s[]);
 
+
 /* функция переводящая число в строку */
 int main()
 {
@@ -34,16 +35,16 @@ void itoaa(int n, char s[])
 
 
 /*reverse
-void reverse(char s[])
-{
-   int i, j;
-   char c;
+void reverse(char s[], int first, int last) {
 
-   for(i = 0, j = strlen(s) - 1; i < j; i++, j--)
-   {
-       c = s[i];
-       s[i] = s[j];
-       s[j] = c;
-   }
+int c = s[first];
+
+s[first++] = s[last];
+
+s[last--] = c;
+
+if (first != last)
+
+reverse(s, first, last);
 }
 */
