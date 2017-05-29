@@ -1,6 +1,7 @@
 #include <stdio.h>
 #define MAX 25
 
+
 void mqsort(int v[], int left, int right);
 void mqswap(int v[], int i, int j);
 
