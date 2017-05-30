@@ -15,7 +15,7 @@ main()
 
   sum = 0;
   while (gettline(s) > 0)
-      printf("\t%g\n", sum += matof(s));
+      printf("\n\t%f\n", sum += matof(s));
 }
 /* Одна из версий getline */
 int gettline(char s[])
