@@ -1,41 +1,5 @@
 #include <stdio.h>
 #include <ctype.h>
-<<<<<<< HEAD
-
-
-#define SIZE 100
-
-int getint(int *)
-int getch(void);
-void ungetch(int);
-
-int main()
-{
-  int n, array[SIZE];
-
-  for (n = 0; n < SIZE && getint(&array[n]) != EOF; n++)
-      ;
-}
-
-int getint(int *pn)
-{
-  int c;
-  int sign;
-  // пропуск пробелов
-  while (isspace(c = getch()))
-      ;
-  if (!isdigit(c) && c != EOF && != '+' && c != '-') {
-    ungetch(c);
-  //Не цыфра
-    return 0;
-  }
-
-  sign = (c == '-') ? -1 : 1;
-  if (c == '+' || c == '-')
-    c = getch();
-
-  for(*pn = 0; isdigit(c); c = getch())
-=======
 #include <math.h>
 
 
@@ -90,15 +54,10 @@ int getint(int *pn)
 
   // применяем цикл к перменной - элементу массива через указатель
   for(*pn = 0; isdigit(c); c = getchar())
->>>>>>> another
     *pn = 10 * *pn + (c - '0');
 
   *pn *= sign;
 
-<<<<<<< HEAD
-  if (c != EOF)
-    ungetch();
-=======
   return c;
 
 }
@@ -152,7 +111,6 @@ else
     *pn = (*pn * sign)/point;
 
 
->>>>>>> another
   return c;
 
 }
