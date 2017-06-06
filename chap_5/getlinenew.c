@@ -2,13 +2,19 @@
 #include <ctype.h>
 
 /* функция записи строки */
-void mgetline(char *s)
+int mgetline(char *s, int lim)
 {
-  int i = 0;
+  int i;
   int c;
-  while((c = getchar()) != EOF && c != '\n'){
-  *s++ = c;
+  for(i = 0; i < lim -1 && (c = getchar()) != EOF && c != '\n'; i++)
+    s[i] = c;
+
+  if (c == '\n') {
+    s[i] = c;
+    ++i;
   }
+  s[i] = '\0';
+  return i;
 }
 /* длинна стоки с указателями */
 int mstrlen(char *s)
@@ -47,13 +53,12 @@ void mstrcat(char *s, char *m, int n)
 }
 
 /* функция записи строки */
-void mstrncpy(char *s, char *m, int n)
+void mstrncpy(char *s, char *m/* int n*/)
 {
-  int i = 0;
-
+  /*int i = 0;*/
     // копируем из одного в другой
-  while(*s++ = *m++ && i < n)
-    i++;
+  while(*s++ = *m++/*&& i < n*/)
+    /*i++*/;
 }
 
 /* функция возвращает 1 если находит строку s  в начале строки m */
